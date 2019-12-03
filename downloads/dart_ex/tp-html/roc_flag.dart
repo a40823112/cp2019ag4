@@ -1,73 +1,127 @@
-import 'dart:html';
-import 'dart:math' as Math;
+/*
+void main() {
+ print("Hello, World!");
+}
+*/
 
-CanvasElement canvas;
-CanvasRenderingContext2D ctx;
-int flag_w = 300;
-int flag_h = 200;
-num circle_x = flag_w / 4;
-num circle_y = flag_h / 4;
+/*
+ * 主函式也可以利用 => 定義單行的函式內容
+main() => print("Hello, World!");
+*/
+
+/*
+import 'dart:math' as math;
 
 void main() {
-  canvas = querySelector('#canvas');
-  ctx = canvas.getContext('2d');
-
-  drawROC(ctx);
-  querySelector("#roc").onClick.listen((e) => drawROC(ctx));
-  querySelector("#usa").onClick.listen((e) => drawUSA(ctx));
-  querySelector("#button").onClick.listen((e) => clearCanvas());
-}
-
-void drawUSA(ctx){
-  // 請畫出美國國旗
-  ctx.clearRect(0, 0, flag_w, flag_h);
-  ctx.font = "30px Arial";
-  ctx.strokeStyle = 'rgb(255, 0, 0)';
-  ctx.strokeText("請畫出美國國旗", flag_w/6, flag_w/4);
-}
-
-void drawROC(ctx){
-  // 先畫滿地紅
-  ctx.clearRect(0, 0, flag_w, flag_h);
-  ctx.fillStyle = 'rgb(255, 0, 0)';
-  ctx.fillRect(0, 0, flag_w, flag_h);
-  // 再畫青天
-  ctx.fillStyle = 'rgb(0, 0, 150)';
-  ctx.fillRect(0, 0, flag_w / 2, flag_h / 2);
-  // 畫十二道光芒白日
-  ctx.beginPath();
-  num star_radius = flag_w / 8;
-  num angle = 0;
-  for (int i = 0; i < 25; i++) {
-    angle += 5 * Math.pi * 2 / 12;
-    num toX = circle_x + Math.cos(angle) * star_radius;
-    num toY = circle_y + Math.sin(angle) * star_radius;
-    // 只有 i 為 0 時移動到 toX, toY, 其餘都進行 lineTo
-    if (i != 0)
-      ctx.lineTo(toX, toY);
-    else
-      ctx.moveTo(toX, toY);
+  var n = 0; // °F
+  print("The °F increases as:\n");
+  for (int temperatures = 0; temperatures <= 10; temperatures++) {
+    n =(temperatures*1.8+32).round().toInt();
+    print("Count $temperatures temperatures:\t $n temperatures");
   }
-  ctx.closePath();
-  // 將填色設為白色
-  ctx.fillStyle = '#fff';
-  ctx.fill();
-  // 白日:藍圈
-  ctx.beginPath();
-  ctx.arc(circle_x, circle_y, flag_w * 17 / 240, 0, Math.pi * 2, true);
-  ctx.closePath();
-  // 填色設為藍色
-  ctx.fillStyle = 'rgb(0, 0, 149)';
-  ctx.fill();
-  // 白日:白心
-  ctx.beginPath();
-  ctx.arc(circle_x, circle_y, flag_w / 16, 0, Math.pi * 2, true);
-  ctx.closePath();
-  // 填色設為白色
-  ctx.fillStyle = '#fff';
-  ctx.fill();
+}
+*/
+
+/*
+import 'dart:math' as math;
+
+int temperatures = 0;
+const int NO_temperatures = 10;
+
+void main() {
+  print("The °F increases as:\n");
+  for (int temperatures = 0) {
+    temperaturesCount = calculatetemperatures(temperatures);
+    print("Count $temperatures temperatures:\t $temperaturesCount temperatures");
+  }
 }
 
-void clearCanvas(){
-  ctx.clearRect(0, 0, flag_w, flag_h);
+int calculatetemperatures(int temperatures) {
+  return(temperatures*1.8+32)
+      .round()
+      .toInt();
 }
+*/
+
+import "dart:html";
+
+
+void main() {
+  querySelector("#submit").onClick.listen((e) => calctemperatures());
+}
+
+calctemperatures() {
+  // binding variables to html elements:
+  InputElement temperaturesInput = querySelector("#temperatures");
+  LabelElement output = querySelector("#output");
+  // getting input
+  String temperaturesString = temperaturesInput.value;
+  int temperatures = int.parse(temperaturesString);
+  // calculating and setting output:
+  output.innerHtml = "${calculatetemperatures(temperatures)}";
+}
+
+int calculatetemperatures(int temperatures) {
+  return (temperatures*1.8+32)
+      .round()
+      .toInt();
+}
+
+/*
+html
+
+temperatures<input type="number" id="temperatures" value="0" min="0" max="100"> 
+°C
+<input type="button" id="submit" value="Calculate"/>
+<br/>°F: <label id="output"></label>
+
+css
+
+body {
+  color: white;
+  font-size: 50px;
+}
+
+input, select, textarea {
+font-size: 100%;
+}
+*/
+/*
+import 'dart:html';
+
+InputElement task;
+UListElement list;
+
+main() {
+  task = querySelector('#task');
+  list = querySelector('#list');
+  task.onChange.listen((e) => addItem());
+}
+
+void addItem() {
+  var newTask = LIElement();
+  newTask.text = task.value;
+  task.value = '';
+  list.children.add(newTask);
+}
+*/
+
+/*
+html
+  
+  <input id="task" type="text" placeholder=
+  "What do you want to do?"/>
+  <ul id="list"/>
+  
+css
+
+body {
+  color: white;
+  font-size: 50px;
+}
+
+input, select, textarea {
+font-size: 100%;
+}
+*/
+

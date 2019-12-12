@@ -1,127 +1,47 @@
-/*
-void main() {
- print("Hello, World!");
-}
-*/
-
-/*
- * 主函式也可以利用 => 定義單行的函式內容
-main() => print("Hello, World!");
-*/
-
-/*
-import 'dart:math' as math;
-
-void main() {
-  var n = 0; // °F
-  print("The °F increases as:\n");
-  for (int temperatures = 0; temperatures <= 10; temperatures++) {
-    n =(temperatures*1.8+32).round().toInt();
-    print("Count $temperatures temperatures:\t $n temperatures");
-  }
-}
-*/
-
-/*
-import 'dart:math' as math;
-
-int temperatures = 0;
-const int NO_temperatures = 10;
-
-void main() {
-  print("The °F increases as:\n");
-  for (int temperatures = 0) {
-    temperaturesCount = calculatetemperatures(temperatures);
-    print("Count $temperatures temperatures:\t $temperaturesCount temperatures");
-  }
-}
-
-int calculatetemperatures(int temperatures) {
-  return(temperatures*1.8+32)
-      .round()
-      .toInt();
-}
-*/
-
 import "dart:html";
-
-
+// 定義一個 C 轉 F 函式
+C(num a){
+ return ((9/5)*a+32); 
+}
+// 定義一個 F 轉 C 函式
+F(num a){
+return (a - 32)*5/9;
+} 
+// 宣告 len 整數變數, 準備設為各字串的長度
+int len;
+// 宣告 var 變數 type, 準備設為各字串最後一個字元, 可能為 C 或 F
+var type;
+// 宣告 var 變數 number, 準備設為各字串中的數字
+var number;
+// 透過HTML,取得使用者輸入的溫度值
+InputElement tempInput = querySelector("#F"); 
+// 將轉換結果顯示在output
+LabelElement output = querySelector("#output");
 void main() {
-  querySelector("#submit").onClick.listen((e) => calctemperatures());
+   //按下按鈕後推送數值
+  querySelector("#submit").onClick.listen((e) => calcRabbits(tempInput.value));
 }
-
-calctemperatures() {
-  // binding variables to html elements:
-  InputElement temperaturesInput = querySelector("#temperatures");
-  LabelElement output = querySelector("#output");
-  // getting input
-  String temperaturesString = temperaturesInput.value;
-  int temperatures = int.parse(temperaturesString);
-  // calculating and setting output:
-  output.innerHtml = "${calculatetemperatures(temperatures)}";
+ calcRabbits(String string){
+  len =  string.length;
+  // 取得各筆資料的最後一個字元
+  type = string[len-1];
+  // 根據溫度類別轉給對應函式進行溫度轉換
+  number = string.substring(0, len-1);
+  // 由於取得的 number 為字串, 必須設法轉為數字 
+  number = int.parse(number);
+  // 之後就可以根據 type 與 number 執行各數列元素的溫度轉換 
+    if(type=="C"){
+      output.innerHtml ="攝氏$number度=華氏${C(number).toStringAsFixed(3)}度";
+    }
+  else if(type=="F"){
+     output.innerHtml ="華氏$number度=攝氏${F(number).toStringAsFixed(3)}度";
+    }
+  else {
+     output.innerHtml ="請輸入數字加上 C 或 F!"
 }
-
-int calculatetemperatures(int temperatures) {
-  return (temperatures*1.8+32)
-      .round()
-      .toInt();
-}
-
 /*
-html
-
-temperatures<input type="number" id="temperatures" value="0" min="0" max="100"> 
-°C
-<input type="button" id="submit" value="Calculate"/>
-<br/>°F: <label id="output"></label>
-
-css
-
-body {
-  color: white;
-  font-size: 50px;
-}
-
-input, select, textarea {
-font-size: 100%;
-}
-*/
-/*
-import 'dart:html';
-
-InputElement task;
-UListElement list;
-
-main() {
-  task = querySelector('#task');
-  list = querySelector('#list');
-  task.onChange.listen((e) => addItem());
-}
-
-void addItem() {
-  var newTask = LIElement();
-  newTask.text = task.value;
-  task.value = '';
-  list.children.add(newTask);
-}
-*/
-
-/*
-html
-  
-  <input id="task" type="text" placeholder=
-  "What do you want to do?"/>
-  <ul id="list"/>
-  
-css
-
-body {
-  color: white;
-  font-size: 50px;
-}
-
-input, select, textarea {
-font-size: 100%;
-}
+當最後一個字元為C時,推送C的數值 
+當最後一個字元為F時,推送F的數值  
+都不是時,推送請輸入數字加上 C 或 F!
 */
 

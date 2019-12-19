@@ -28,15 +28,15 @@ void drawUSA(ctx){
   ctx.fillStyle = 'rgb(255, 255, 255)';
   ctx.fillRect(0, 46.2, flag_w / 1, flag_h / 13);
   ctx.fillStyle = 'rgb(255, 255, 255)';
-  ctx.fillRect(0, 77.0, flag_w / 1, flag_h / 13);
+  ctx.fillRect(0, 77.2, flag_w / 1, flag_h / 13);
   ctx.fillStyle = 'rgb(255, 255, 255)';
-  ctx.fillRect(0, 107.8, flag_w / 1, flag_h / 13);
+  ctx.fillRect(0, 108.0, flag_w / 1, flag_h / 13);
   ctx.fillStyle = 'rgb(255, 255, 255)';
-  ctx.fillRect(0, 138.6, flag_w / 1, flag_h / 13);
+  ctx.fillRect(0, 138.8, flag_w / 1, flag_h / 13);
   ctx.fillStyle = 'rgb(255, 255, 255)';
-  ctx.fillRect(0, 169.4, flag_w / 1, flag_h / 13);
+  ctx.fillRect(0, 169.6, flag_w / 1, flag_h / 13);
   ctx.fillStyle = 'rgb(255, 255, 255)';
-  ctx.fillRect(0, 200.2, flag_w / 1, flag_h / 13);
+  ctx.fillRect(0, 200.4, flag_w / 1, flag_h / 13);
   ctx.fillStyle = 'rgb(0, 0, 150)';
   ctx.fillRect(0, 0, flag_w / 2, flag_h / 2);
 

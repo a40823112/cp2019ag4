@@ -38,6 +38,19 @@ void drawUSA(ctx){
   ctx.fillRect(0, 200.4, flag_w / 1, flag_h / 13);
   ctx.fillStyle = 'rgb(0, 0, 150)';
   ctx.fillRect(0, 0, flag_w / 2, flag_h / 2);
+    num b = flag_h/18;
+  ctx.font = "10px Arial";
+  ctx.strokeStyle = 'rgb(255, 255, 255)';
+  ctx.strokeText("✮      ✮      ✮      ✮      ✮      ✮", flag_w / 36,12);
+  ctx.strokeText("✮      ✮      ✮      ✮      ✮", flag_w / 14, b*2);
+  ctx.strokeText("✮      ✮      ✮      ✮      ✮      ✮", flag_w / 36, b*3);
+  ctx.strokeText("✮      ✮      ✮      ✮      ✮", flag_w / 14, b*4);
+  ctx.strokeText("✮      ✮      ✮      ✮      ✮      ✮", flag_w / 36, b*5);
+  ctx.strokeText("✮      ✮      ✮      ✮      ✮", flag_w / 14, b*6);
+  ctx.strokeText("✮      ✮      ✮      ✮      ✮      ✮", flag_w / 36, b*7);
+   ctx.strokeText("✮      ✮      ✮      ✮      ✮", flag_w / 14, b*8);
+   ctx.strokeText("✮      ✮      ✮      ✮      ✮      ✮", flag_w / 36, b*9);
+
 
 }
 

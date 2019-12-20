@@ -37,7 +37,7 @@ void drawUSA(ctx){
   ctx.fillStyle = 'rgb(255, 255, 255)';
   ctx.fillRect(0, 200.4, flag_w / 1, flag_h / 13);
   ctx.fillStyle = 'rgb(0, 0, 150)';
-  ctx.fillRect(0, 0, flag_w / 2, flag_h / 2);
+  ctx.fillRect(0, 0, flag_w / 2, flag_h / 1.9);
     num b = flag_h/18;
   ctx.font = "10px Arial";
   ctx.strokeStyle = 'rgb(255, 255, 255)';
